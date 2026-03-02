@@ -6,37 +6,37 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-## 🌍 Live Demo
+## Live Demo
 
 [View Live Demo](https://your-demo-link.netlify.app) *<!-- Add your demo link here -->*
 
-## 📋 Overview
+## Overview
 
 GreenStay is a modern, responsive web platform dedicated to promoting sustainable tourism by connecting environmentally conscious travelers with eco-friendly accommodations. Every booking contributes to reforestation efforts and supports sustainable practices.
 
 ![Screenshot_2-3-2026_183616_127 0 0 1](https://github.com/user-attachments/assets/32ef2b9f-cb4e-403a-9112-a865c7ee6b75)
 
-## ✨ Features
+## Features
 
-### 🏠 **Core Features**
+###  **Core Features**
 - **Property Listings**: Browse through curated eco-friendly accommodations
 - **Smart Search**: Filter properties by location and dates
 - **Booking System**: Seamless reservation process with eco-options
 - **Green Impact Tracker**: Real-time statistics on environmental contributions
 
-### 🌱 **Sustainability Features**
+### **Sustainability Features**
 - **Carbon Offset**: Optional $5 carbon offset per booking
 - **Tree Planting**: One tree planted for every reservation
 - **Eco-Certification**: All properties verified for sustainable practices
 - **Green Badges**: Visual indicators for eco-friendly features
 
-### 🎨 **User Experience**
+### **User Experience**
 - **Responsive Design**: Optimized for all devices (mobile, tablet, desktop)
 - **Smooth Animations**: Engaging transitions and hover effects
 - **Interactive Modal**: User-friendly booking interface
 - **Real-time Stats**: Live updates on environmental impact
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
 - **Styling**: Custom CSS with Flexbox/Grid
@@ -44,7 +44,7 @@ GreenStay is a modern, responsive web platform dedicated to promoting sustainabl
 - **Icons**: Emoji-based icon system
 - **Fonts**: Google Fonts (Segoe UI, system fonts)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 greenstay/
@@ -62,7 +62,7 @@ greenstay/
     └── main.js         # Separated JavaScript logic
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Any modern web browser (Chrome, Firefox, Safari, Edge)
@@ -97,7 +97,7 @@ npx live-server
 # Then open http://localhost:8000
 ```
 
-## 🎯 Usage Examples
+## Usage Examples
 
 ### Searching for Properties
 ```javascript
@@ -118,7 +118,7 @@ function confirmBooking(event) {
 }
 ```
 
-## 🔧 Customization
+## Customization
 
 ### Adding New Properties
 Edit the `properties` array in the JavaScript section:
@@ -130,7 +130,7 @@ const properties = [
         location: "Location",
         price: 199,
         rating: 4.5,
-        image: "🌳", // Emoji or image URL
+        image: "tree", // Emoji or image URL
         features: ["Solar", "Organic", "Recycled"],
         description: "Your property description"
     }
@@ -150,21 +150,21 @@ Update the CSS variables in the `<style>` section:
 }
 ```
 
-## 🌟 Key Highlights
+## Key Highlights
 
 ### Environmental Impact
-- 🌳 **Trees Planted**: Counter for reforestation contributions
-- 💧 **Water Saved**: Tracking conservation efforts
-- ⚡ **Energy Efficient**: Properties using renewable energy
-- ♻️ **Waste Reduction**: Zero-waste property certification
+-  **Trees Planted**: Counter for reforestation contributions
+-  **Water Saved**: Tracking conservation efforts
+-  **Energy Efficient**: Properties using renewable energy
+-  **Waste Reduction**: Zero-waste property certification
 
 ### User Benefits
-- 🌿 **Eco-Certified Stays**: Verified sustainable accommodations
-- 📊 **Impact Tracking**: See your environmental contribution
-- 💚 **Guilt-Free Travel**: Enjoy vacations while helping the planet
-- 🎁 **Green Rewards**: Loyalty program for frequent eco-travelers
+-  **Eco-Certified Stays**: Verified sustainable accommodations
+-  **Impact Tracking**: See your environmental contribution
+-  **Guilt-Free Travel**: Enjoy vacations while helping the planet
+-  **Green Rewards**: Loyalty program for frequent eco-travelers
 
-## 📱 Responsive Design
+## Responsive Design
 
 | Device | Breakpoint | Features |
 |--------|------------|----------|
@@ -172,7 +172,7 @@ Update the CSS variables in the `<style>` section:
 | Tablet | 768px - 1024px | Grid adjustments, visible features |
 | Desktop | > 1024px | Full layout, hover effects |
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions to make GreenStay even better!
 
@@ -192,17 +192,26 @@ We welcome contributions to make GreenStay even better!
 - Multi-language support
 - Advanced search filters
 
-## 📝 License
+## License
 
 Distributed under the MIT License. See `LICENSE` file for more information.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Icons**: Emoji icons provided by Unicode Consortium
 - **Inspiration**: Sustainable tourism initiatives worldwide
 - **Community**: Eco-conscious travelers and property owners
 
+## Contact
 
+Om Gedam
 
+GitHub: @itsomg134
 
-**Made with 💚 for a greener planet**
+Email: omgedam123098@gmail.com
+
+Twitter (X): @omgedam
+
+LinkedIn: Om Gedam
+
+Portfolio: https://ogworks.lovable.app
