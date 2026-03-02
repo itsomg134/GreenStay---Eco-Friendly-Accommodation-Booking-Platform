@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenStay - Eco-Friendly Accommodation Booking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f4e5 100%);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(46, 125, 50, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%232e7d32" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #2e7d32;
+            box-shadow: 0 0 10px rgba(46,125,50,0.3);
+        }
+
+        .search-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .search-btn:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46,125,50,0.4);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: #2e7d32;
+            box-shadow: 0 15px 30px rgba(46,125,50,0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        /* Properties Section */
+        .properties {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1b5e20;
+            margin-bottom: 1rem;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(46,125,50,0.3);
+        }
+
+        .property-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .eco-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2e7d32;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .property-details {
+            padding: 1.5rem;
+        }
+
+        .property-details h3 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        .property-location {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .property-features span {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .property-price {
+            font-size: 1.5rem;
+            color: #1b5e20;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .property-price small {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .book-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .book-btn:hover {
+            background: #1b5e20;
+            transform: scale(1.05);
+        }
+
+        /* Green Initiatives */
+        .initiatives {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .initiatives h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .initiative-stats {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: slideIn 0.5s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            color: #2e7d32;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2e7d32;
+        }
+
+        .confirm-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1b5e20;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .search-container {
+                border-radius: 20px;
+                padding: 1rem;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i>🌿</i>
+                <span>GreenStay</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#features">Why Green</a></li>
+                <li><a href="#initiatives">Impact</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Stay Green, Travel Clean</h1>
+            <p>Discover eco-friendly accommodations that care for our planet</p>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Where do you want to go?">
+                <input type="date" class="search-input" id="checkin">
+                <input type="date" class="search-input" id="checkout">
+                <button class="search-btn" onclick="searchProperties()">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🌱</div>
+            <h3>100% Renewable Energy</h3>
+            <p>All our properties run on clean, renewable energy sources</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">♻️</div>
+            <h3>Zero Waste Policy</h3>
+            <p>Committed to reducing, reusing, and recycling waste</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💧</div>
+            <h3>Water Conservation</h3>
+            <p>Advanced water-saving systems and rainwater harvesting</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>Carbon Offset</h3>
+            <p>We plant trees for every booking made</p>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="properties">
+        <div class="section-title">
+            <h2>Eco-Friendly Stays</h2>
+            <p>Hand-picked sustainable accommodations for conscious travelers</p>
+        </div>
+        <div class="property-grid" id="propertyGrid">
+            <!-- Properties will be loaded here via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Green Initiatives -->
+    <section id="initiatives" class="initiatives">
+        <h2>Our Green Impact</h2>
+        <div class="initiative-stats">
+            <div class="stat">
+                <div class="stat-number">10,000+</div>
+                <div class="stat-label">Trees Planted</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Eco Properties</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">50,000+</div>
+                <div class="stat-label">Happy Green Guests</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1,000+</div>
+                <div class="stat-label">Tons CO2 Saved</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Your Green Booking</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form class="booking-form" id="bookingForm" onsubmit="confirmBooking(event)">
+                <div class="form-group">
+                    <label for="propertyName">Property</label>
+                    <input type="text" id="propertyName" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" required placeholder="+1234567890">
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" required>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="checkinDate">Check-in Date</label>
+                    <input type="date" id="checkinDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutDate">Check-out Date</label>
+                    <input type="date" id="checkoutDate" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="carbonOffset" checked>
+                        Offset my carbon footprint (+$5)
+                    </label>
+                </div>
+                <button type="submit" class="confirm-btn">Confirm Eco-Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🌿 GreenStay</h3>
+                <p>Making sustainable travel accessible for everyone. Every booking helps protect our planet.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#features">Why Green</a></li>
+                    <li><a href="#initiatives">Our Impact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>📧 hello@greenstay.com</li>
+                    <li>📞 +1 (555) 123-4567</li>
+                    <li>📍 123 Eco Street, Green City</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">🌱 Instagram</a></li>
+                    <li><a href="#">🌍 Twitter</a></li>
+                    <li><a href="#">📘 Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 GreenStay. Every booking plants a tree. 🌳</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample property data
+        const properties = [
+            {
+                name: "EcoTree Lodge",
+                location: "Costa Rica",
+                price: 129,
+                rating: 4.9,
+                image: "🌲",
+                features: ["Solar Powered", "Organic Garden", "Rainwater Harvesting"],
+                description: "Luxury treehouse surrounded by rainforest"
+            },
+            {
+                name: "Solar Beach House",
+                location: "Maldives",
+                price: 299,
+                rating: 4.8,
+                image: "🏖️",
+                features: ["Solar Panels", "Marine Conservation", "Zero Plastic"],
+                description: "Beachfront villa with coral reef protection"
+            },
+            {
+                name: "Mountain Eco-Retreat",
+                location: "Switzerland",
+                price: 199,
+                rating: 4.7,
+                image: "⛰️",
+                features: ["Geothermal Heating", "Local Materials", "Wildlife Corridor"],
+                description: "Sustainable alpine cabin with panoramic views"
+            },
+            {
+                name: "Green Valley Farm",
+                location: "Italy",
+                price: 89,
+                rating: 4.6,
+                image: "🌿",
+                features: ["Organic Farm", "Composting", "Permaculture"],
+                description: "Working organic farm in Tuscany"
+            },
+            {
+                name: "EcoPod Village",
+                location: "Iceland",
+                price: 159,
+                rating: 4.9,
+                image: "❄️",
+                features: ["Geothermal", "Northern Lights", "Recycled Materials"],
+                description: "Sustainable pods with geothermal heating"
+            },
+            {
+                name: "Bamboo Paradise",
+                location: "Bali",
+                price: 79,
+                rating: 4.8,
+                image: "🎋",
+                features: ["Bamboo Construction", "Water Recycling", "Local Community"],
+                description: "Traditional bamboo villas in rice fields"
+            }
+        ];
+
+        // Load properties
+        function loadProperties() {
+            const propertyGrid = document.getElementById('propertyGrid');
+            propertyGrid.innerHTML = properties.map(property => `
+                <div class="property-card">
+                    <div class="property-image" style="background: linear-gradient(135deg, #2e7d32, #81c784); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                        ${property.image}
+                    </div>
+                    <div class="eco-badge">🌱 Eco-Certified</div>
+                    <div class="property-details">
+                        <h3>${property.name}</h3>
+                        <div class="property-location">📍 ${property.location} | ⭐ ${property.rating}</div>
+                        <p>${property.description}</p>
+                        <div class="property-features">
+                            ${property.features.map(feature => `<span>${feature}</span>`).join('')}
+                        </div>
+                        <div class="property-price">
+                            $${property.price} <small>/ night</small>
+                        </div>
+                        <button class="book-btn" onclick="openBooking('${property.name}')">Book Green Stay</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Open booking modal
+        function openBooking(propertyName) {
+            document.getElementById('propertyName').value = propertyName;
+            
+            // Set default dates
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            document.getElementById('checkinDate').value = today.toISOString().split('T')[0];
+            document.getElementById('checkoutDate').value = tomorrow.toISOString().split('T')[0];
+            
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        // Search properties
+        function searchProperties() {
+            const location = document.querySelector('.search-input').value;
+            if (location) {
+                alert(`Searching for eco-friendly stays in ${location}... 🌿`);
+                // In a real app, this would filter properties
+            } else {
+                alert('Please enter a destination to search for green stays!');
+            }
+        }
+
+        // Confirm booking
+        function confirmBooking(event) {
+            event.preventDefault();
+            
+            const property = document.getElementById('propertyName').value;
+            const name = document.getElementById('fullName').value;
+            const checkin = document.getElementById('checkinDate').value;
+            const checkout = document.getElementById('checkoutDate').value;
+            
+            alert(`Thank you for choosing green! 🌱\n\nBooking confirmed for ${name} at ${property}\nFrom: ${checkin} To: ${checkout}\n\nWe've planted a tree in your honor! 🌳`);
+            
+            closeModal();
+            event.target.reset();
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProperties();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
