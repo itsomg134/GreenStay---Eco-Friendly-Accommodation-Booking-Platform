@@ -14,7 +14,7 @@
 
 GreenStay is a modern, responsive web platform dedicated to promoting sustainable tourism by connecting environmentally conscious travelers with eco-friendly accommodations. Every booking contributes to reforestation efforts and supports sustainable practices.
 
-![GreenStay Screenshot](https://via.placeholder.com/800x400?text=GreenStay+Website+Screenshot) *<!-- Add actual screenshot later -->*
+![Screenshot_2-3-2026_183616_127 0 0 1](https://github.com/user-attachments/assets/32ef2b9f-cb4e-403a-9112-a865c7ee6b75)
 
 ## ✨ Features
 
